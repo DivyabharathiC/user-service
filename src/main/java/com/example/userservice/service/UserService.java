@@ -10,11 +10,15 @@ import java.util.List;
 public interface UserService {
 
     User createUser(User user);
-    String deleteUser(String userId);
+
+    User getUser(String userId);
+
+    List<User> getAllUsers();
 
     User updateUserDetails(String userId, UpdateUserDetails user);
 
-    List<User> getAllUsers();
+    String deleteUser(String userId);
+
 
 
 

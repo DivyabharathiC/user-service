@@ -18,11 +18,15 @@ public class UserServiceImpl implements UserService{
     public User createUser(User user) {
         return userRepo.save(user);
     }
+
     @Override
-    public String deleteUser(String userId) {
-        User user = userRepo.findByUserId(userId);
-        userRepo.delete(user);
-        return "User deleted for id : " + userId;
+    public User getUser(String userId) {
+        return userRepo.findById(userId).get();
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        return userRepo.findAll();
     }
 
     @Override
@@ -45,9 +49,9 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public List<User> getAllUsers() {
-        return userRepo.findAll();
+    public String deleteUser(String userId) {
+        User user = userRepo.findByUserId(userId);
+        userRepo.delete(user);
+        return "User deleted for id : " + userId;
     }
-
-
 }
