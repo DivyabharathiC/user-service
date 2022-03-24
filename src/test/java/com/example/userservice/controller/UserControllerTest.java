@@ -1,13 +1,11 @@
 package com.example.userservice.controller;
 
 import com.example.userservice.enums.Gender;
-import com.example.userservice.enums.MartialStatus;
 import com.example.userservice.model.User;
 import com.example.userservice.service.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -19,7 +17,6 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.Date;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -61,8 +58,10 @@ class UserControllerTest {
         user.setLastName("Gyara");
         user.setDateOfBirth(new Date());
         user.setGender(Gender.MALE);
-        user.setMartialStatus(MartialStatus.SINGLE);
-        user.setEmployeeNumber("6969");
+        user.setAddress("Hyderabad");
+        user.setEmployeeId("6969");
+        user.setPhoneNumber("+919700933932");
+        user.setBloodGroup("A+");
         user.setEmail("gyarab@maveric-systems.com");
         user.setPassword("1234567");
         return user;

@@ -1,20 +1,17 @@
-package com.example.userservice.model;
+package com.example.userservice.dto;
 
 import com.example.userservice.enums.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(collection = "User")
-public class User {
-
+@Data
+public class UserDTO {
     @Id
     private String userId;
     private String firstName;
@@ -28,5 +25,4 @@ public class User {
     private String bloodGroup;
     private String email;
     private String password;
-
 }
