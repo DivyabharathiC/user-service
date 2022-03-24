@@ -1,5 +1,6 @@
 package com.example.userservice.service;
 
+import com.example.userservice.dto.UserDTO;
 import com.example.userservice.model.UpdateUserDetails;
 import com.example.userservice.model.User;
 import org.springframework.stereotype.Service;
@@ -15,11 +16,11 @@ public interface UserService {
 
     List<User> getAllUsers();
 
-    User updateUserDetails(String userId, UpdateUserDetails user);
+
 
     String deleteUser(String userId);
 
+    UserDTO userByEmail(String email);
 
-
-
+    User updateUserDetails(String userId, User user);
 }
