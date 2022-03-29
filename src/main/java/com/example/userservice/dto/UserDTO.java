@@ -12,6 +12,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Data
 public class UserDTO {
+
     @Id
     private String userId;
     private String firstName;
@@ -24,5 +25,4 @@ public class UserDTO {
     private String employeeId;
     private String bloodGroup;
     private String email;
-    private String password;
 }

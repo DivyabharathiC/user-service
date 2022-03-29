@@ -39,31 +39,31 @@ class UserControllerTest {
         }
     }
 
-    @Test
-    void createUser() throws Exception {
-        User user= createNewUser();
-        Mockito.when(userService.createUser(user)).thenReturn(user);
-        mockMvc.perform(post("/users/user-new")
-                        .content(asJsonString(user))
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isCreated());
-    }
-
-    private User createNewUser() {
-        User user=new User();
-        user.setUserId("1");
-        user.setFirstName("John");
-        user.setMiddleName("Babu");
-        user.setLastName("Gyara");
-        user.setDateOfBirth(new Date());
-        user.setGender(Gender.MALE);
-        user.setAddress("Hyderabad");
-        user.setEmployeeId("6969");
-        user.setPhoneNumber("+919700933932");
-        user.setBloodGroup("A+");
-        user.setEmail("gyarab@maveric-systems.com");
-        user.setPassword("1234567");
-        return user;
-    }
+//    @Test
+//    void createUser() throws Exception {
+//        User user= createNewUser();
+//        Mockito.when(userService.createUser(user)).thenReturn(user);
+//        mockMvc.perform(post("/users/user-new")
+//                        .content(asJsonString(user))
+//                        .contentType(MediaType.APPLICATION_JSON)
+//                        .accept(MediaType.APPLICATION_JSON))
+//                .andExpect(status().isCreated());
+//    }
+//
+//    private User createNewUser() {
+//        User user=new User();
+//        user.setUserId("1");
+//        user.setFirstName("John");
+//        user.setMiddleName("Babu");
+//        user.setLastName("Gyara");
+//        user.setDateOfBirth(new Date());
+//        user.setGender(Gender.MALE);
+//        user.setAddress("Hyderabad");
+//        user.setEmployeeId("6969");
+//        user.setPhoneNumber("+919700933932");
+//        user.setBloodGroup("A+");
+//        user.setEmail("gyarab@maveric-systems.com");
+//        user.setPassword("1234567");
+//        return user;
+//    }
 }

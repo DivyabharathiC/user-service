@@ -1,14 +1,13 @@
 package com.example.userservice.service;
 
 import com.example.userservice.dto.UserDTO;
-import com.example.userservice.model.UpdateUserDetails;
 import com.example.userservice.model.User;
 import com.example.userservice.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -22,32 +21,54 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User getUser(String userId) {
-        return userRepo.findById(userId).get();
+    public UserDTO getUser(String userId) {
+        User user= userRepo.findById(userId).get();
+        UserDTO userDTO=new UserDTO();
+        userDTO.setUserId(user.getUserId());
+        userDTO.setFirstName(user.getFirstName());
+        userDTO.setMiddleName(user.getMiddleName());
+        userDTO.setLastName(user.getLastName());
+        userDTO.setPhoneNumber(user.getPhoneNumber());
+        userDTO.setDateOfBirth(user.getDateOfBirth());
+        userDTO.setEmail(user.getEmail());
+        userDTO.setGender(user.getGender());
+        userDTO.setAddress(user.getAddress());
+        userDTO.setEmployeeId(user.getEmployeeId());
+        userDTO.setBloodGroup(user.getBloodGroup());
+        userDTO.setEmail(user.getEmail());
+        return  userDTO;
     }
 
     @Override
-    public List<User> getAllUsers() {
-        return userRepo.findAll();
+    public List<UserDTO> getAllUsers() {
+        List<User> users = userRepo.findAll();
+        List<UserDTO> userDTOS = new ArrayList<>();
+        for (User user : users) {
+            UserDTO userDTO = new UserDTO(user.getUserId(), user.getFirstName(), user.getMiddleName(),
+                    user.getLastName(), user.getPhoneNumber(), user.getDateOfBirth(), user.getGender(),
+                    user.getAddress(), user.getEmployeeId(), user.getBloodGroup(), user.getEmail());
+            userDTOS.add(userDTO);
+        }
+        return userDTOS;
     }
 
     @Override
-    public User updateUserDetails(String userId, User user) {
-        User user1=userRepo.findByUserId(userId);
-        user1.setUserId(user.getUserId());
-        user1.setFirstName(user.getFirstName());
-        user1.setMiddleName(user.getMiddleName());
-        user1.setLastName(user.getLastName());
-        user1.setDateOfBirth(user.getDateOfBirth());
-        user1.setEmployeeId(user.getEmployeeId());
-        user1.setGender(user.getGender());
-        user1.setBloodGroup(user.getBloodGroup());
-        user1.setAddress(user.getAddress());
-        user1.setEmail(user.getEmail());
-        user1.setPassword(user.getPassword());
-        user1.setPhoneNumber(user.getPhoneNumber());
-        userRepo.save(user1);
-        return user1;
+    public User updateUser(String userId, UserDTO userDTO) {
+        User user=userRepo.findByUserId(userId);
+        user.setUserId(userDTO.getUserId());
+        user.setFirstName(userDTO.getFirstName());
+        user.setMiddleName(userDTO.getMiddleName());
+        user.setLastName(userDTO.getLastName());
+        user.setPhoneNumber(userDTO.getPhoneNumber());
+        user.setDateOfBirth(userDTO.getDateOfBirth());
+        user.setGender(userDTO.getGender());
+        user.setAddress(userDTO.getAddress());
+        user.setEmployeeId(userDTO.getEmployeeId());
+        user.setBloodGroup(userDTO.getBloodGroup());
+        user.setEmail(userDTO.getEmail());
+
+        userRepo.save(user);
+        return user;
     }
 
     @Override
@@ -60,7 +81,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public UserDTO userByEmail(String email) {
         User user = (User) userRepo.findByEmail(email);
-        UserDTO userDTO = new UserDTO(user.getUserId(),user.getFirstName(),user.getMiddleName(),user.getLastName(),user.getPhoneNumber(),user.getDateOfBirth(),user.getGender(),user.getEmployeeId(),user.getBloodGroup(),user.getAddress(),user.getEmail(),user.getPassword());
+        UserDTO userDTO = new UserDTO(user.getUserId(),user.getFirstName(),user.getMiddleName(),user.getLastName(),user.getPhoneNumber(),user.getDateOfBirth(),user.getGender(),user.getEmployeeId(),user.getBloodGroup(),user.getAddress(),user.getEmail());
         return  userDTO;
     }
 }
