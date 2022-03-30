@@ -25,4 +25,5 @@ public class UserDTO {
     private String employeeId;
     private String bloodGroup;
     private String email;
+
 }

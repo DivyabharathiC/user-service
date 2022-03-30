@@ -36,6 +36,7 @@ public class UserServiceImpl implements UserService{
         userDTO.setEmployeeId(user.getEmployeeId());
         userDTO.setBloodGroup(user.getBloodGroup());
         userDTO.setEmail(user.getEmail());
+
         return  userDTO;
     }
 
@@ -66,7 +67,7 @@ public class UserServiceImpl implements UserService{
         user.setEmployeeId(userDTO.getEmployeeId());
         user.setBloodGroup(userDTO.getBloodGroup());
         user.setEmail(userDTO.getEmail());
-
+        user.setPassword(user.getPassword());
         userRepo.save(user);
         return user;
     }
@@ -80,8 +81,11 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public UserDTO userByEmail(String email) {
-        User user = (User) userRepo.findByEmail(email);
-        UserDTO userDTO = new UserDTO(user.getUserId(),user.getFirstName(),user.getMiddleName(),user.getLastName(),user.getPhoneNumber(),user.getDateOfBirth(),user.getGender(),user.getEmployeeId(),user.getBloodGroup(),user.getAddress(),user.getEmail());
+        User user = userRepo.findByEmail(email);
+        UserDTO userDTO = new UserDTO(user.getUserId(),
+                user.getFirstName(),user.getMiddleName(),user.getLastName(),
+                user.getPhoneNumber(),user.getDateOfBirth(),user.getGender(),
+                user.getEmployeeId(),user.getBloodGroup(),user.getAddress(),user.getEmail());
         return  userDTO;
     }
 }

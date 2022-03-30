@@ -766,3 +766,197 @@ java.util.NoSuchElementException: No value present
 2022-03-30 15:40:38.024  INFO 31408 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
 2022-03-30 15:45:38.028  INFO 31408 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
 2022-03-30 15:50:38.044  INFO 31408 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-03-30 15:55:38.053  INFO 31408 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-03-30 15:56:28.756  INFO 31408 --- [Thread-6] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application USER-SERVICE with eureka with status DOWN
+2022-03-30 15:56:28.758  INFO 31408 --- [Thread-6] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1648635988758, current=DOWN, previous=UP]
+2022-03-30 15:56:28.760  INFO 31408 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/MAVCHN0821151.mavericsystems.lan:user-service:3005: registering service...
+2022-03-30 15:56:28.827  INFO 31408 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/MAVCHN0821151.mavericsystems.lan:user-service:3005 - registration status: 204
+2022-03-30 15:56:29.325  INFO 31408 --- [Thread-6] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2022-03-30 15:56:32.345  INFO 31408 --- [Thread-6] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2022-03-30 15:56:32.356  INFO 31408 --- [Thread-6] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/MAVCHN0821151.mavericsystems.lan:user-service:3005 - deregister  status: 200
+2022-03-30 15:56:32.372  INFO 31408 --- [Thread-6] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2022-03-30 15:56:34.220  INFO 31408 --- [restartedMain] c.e.userservice.UserServiceApplication   : Starting UserServiceApplication using Java 1.8.0_261 on MAVCHN0821151 with PID 31408 (C:\Users\divyabharathic\Documents\Trainingdocuments\SpringAssesment_test\SpringFinaldemo\user-service\target\classes started by divyabharathic in C:\Users\divyabharathic\Documents\Trainingdocuments\SpringAssesment_test\SpringFinaldemo\user-service)
+2022-03-30 15:56:34.221  INFO 31408 --- [restartedMain] c.e.userservice.UserServiceApplication   : No active profile set, falling back to 1 default profile: "default"
+2022-03-30 15:56:35.233  INFO 31408 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-03-30 15:56:35.295  INFO 31408 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 61 ms. Found 1 MongoDB repository interfaces.
+2022-03-30 15:56:35.593  INFO 31408 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=55f012d7-af9e-3023-9863-ed47f91fa68a
+2022-03-30 15:56:35.991  INFO 31408 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 3005 (http)
+2022-03-30 15:56:35.994  INFO 31408 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-30 15:56:35.995  INFO 31408 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-03-30 15:56:36.047  INFO 31408 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-30 15:56:36.048  INFO 31408 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1820 ms
+2022-03-30 15:56:36.102  INFO 31408 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-03-30 15:56:36.114  WARN 31408 --- [restartedMain] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2022-03-30 15:56:36.126  INFO 31408 --- [cluster-rtt-ClusterId{value='6244305c2d5dac5150fd8515', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:5, serverValue:51}] to localhost:27017
+2022-03-30 15:56:36.131  INFO 31408 --- [cluster-ClusterId{value='6244305c2d5dac5150fd8515', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:4, serverValue:52}] to localhost:27017
+2022-03-30 15:56:36.132  INFO 31408 --- [cluster-ClusterId{value='6244305c2d5dac5150fd8515', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=23252000}
+2022-03-30 15:56:36.167  INFO 31408 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-30 15:56:36.208  WARN 31408 --- [restartedMain] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2022-03-30 15:56:37.765  INFO 31408 --- [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2022-03-30 15:56:38.219  INFO 22984 --- [main] c.e.u.UserServiceApplicationTests        : Starting UserServiceApplicationTests using Java 1.8.0_261 on MAVCHN0821151 with PID 22984 (started by divyabharathic in C:\Users\divyabharathic\Documents\Trainingdocuments\SpringAssesment_test\SpringFinaldemo\user-service)
+2022-03-30 15:56:38.222  INFO 22984 --- [main] c.e.u.UserServiceApplicationTests        : No active profile set, falling back to 1 default profile: "default"
+2022-03-30 15:56:38.818  WARN 31408 --- [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2022-03-30 15:56:38.878  INFO 31408 --- [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2022-03-30 15:56:38.890  INFO 31408 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2022-03-30 15:56:38.891  INFO 31408 --- [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-03-30 15:56:38.982  INFO 31408 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2022-03-30 15:56:38.983  INFO 31408 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2022-03-30 15:56:38.983  INFO 31408 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2022-03-30 15:56:38.983  INFO 31408 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2022-03-30 15:56:38.984  INFO 31408 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2022-03-30 15:56:38.984  INFO 31408 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2022-03-30 15:56:38.985  INFO 31408 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2022-03-30 15:56:39.125  INFO 31408 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2022-03-30 15:56:39.127  INFO 31408 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2022-03-30 15:56:39.129  INFO 31408 --- [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-03-30 15:56:39.165  INFO 31408 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1648635999165 with initial instances count: 4
+2022-03-30 15:56:39.166  INFO 31408 --- [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application USER-SERVICE with eureka with status UP
+2022-03-30 15:56:39.167  INFO 31408 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1648635999166, current=UP, previous=STARTING]
+2022-03-30 15:56:39.232  INFO 31408 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/MAVCHN0821151.mavericsystems.lan:user-service:3005: registering service...
+2022-03-30 15:56:39.220  INFO 31408 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 3005 (http) with context path ''
+2022-03-30 15:56:39.277  INFO 31408 --- [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 3005
+2022-03-30 15:56:39.306  INFO 31408 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/MAVCHN0821151.mavericsystems.lan:user-service:3005 - registration status: 204
+2022-03-30 15:56:39.706  INFO 22984 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-03-30 15:56:39.999  INFO 22984 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 283 ms. Found 1 MongoDB repository interfaces.
+2022-03-30 15:56:40.040  INFO 31408 --- [restartedMain] c.e.userservice.UserServiceApplication   : Started UserServiceApplication in 6.909 seconds (JVM running for 5770.032)
+2022-03-30 15:56:40.044  INFO 31408 --- [Thread-10] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application USER-SERVICE with eureka with status DOWN
+2022-03-30 15:56:40.046  INFO 31408 --- [Thread-10] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1648636000046, current=DOWN, previous=UP]
+2022-03-30 15:56:40.047  INFO 31408 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/MAVCHN0821151.mavericsystems.lan:user-service:3005: registering service...
+2022-03-30 15:56:40.057  INFO 31408 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-03-30 15:56:40.059  INFO 31408 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/MAVCHN0821151.mavericsystems.lan:user-service:3005 - registration status: 204
+2022-03-30 15:56:40.353  INFO 22984 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=b443539a-1666-3b0b-a1d9-98426f2f026b
+2022-03-30 15:56:40.507  INFO 31408 --- [Thread-10] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2022-03-30 15:56:41.149  INFO 22984 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-03-30 15:56:41.314  INFO 22984 --- [cluster-rtt-ClusterId{value='624430618ac4bb19da0fb319', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:54}] to localhost:27017
+2022-03-30 15:56:41.314  INFO 22984 --- [cluster-ClusterId{value='624430618ac4bb19da0fb319', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:53}] to localhost:27017
+2022-03-30 15:56:41.315  INFO 22984 --- [cluster-ClusterId{value='624430618ac4bb19da0fb319', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=32885700}
+2022-03-30 15:56:41.389  WARN 22984 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2022-03-30 15:56:41.577  WARN 22984 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2022-03-30 15:56:43.516  INFO 31408 --- [Thread-10] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2022-03-30 15:56:43.529  INFO 31408 --- [Thread-10] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/MAVCHN0821151.mavericsystems.lan:user-service:3005 - deregister  status: 200
+2022-03-30 15:56:43.536  INFO 31408 --- [Thread-10] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2022-03-30 15:56:43.941  INFO 22984 --- [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2022-03-30 15:56:44.727  INFO 31408 --- [restartedMain] c.e.userservice.UserServiceApplication   : Starting UserServiceApplication using Java 1.8.0_261 on MAVCHN0821151 with PID 31408 (C:\Users\divyabharathic\Documents\Trainingdocuments\SpringAssesment_test\SpringFinaldemo\user-service\target\classes started by divyabharathic in C:\Users\divyabharathic\Documents\Trainingdocuments\SpringAssesment_test\SpringFinaldemo\user-service)
+2022-03-30 15:56:44.728  INFO 31408 --- [restartedMain] c.e.userservice.UserServiceApplication   : No active profile set, falling back to 1 default profile: "default"
+2022-03-30 15:56:45.233  INFO 31408 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-03-30 15:56:45.255  INFO 31408 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 1 MongoDB repository interfaces.
+2022-03-30 15:56:45.403  WARN 22984 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2022-03-30 15:56:45.418  INFO 31408 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=55f012d7-af9e-3023-9863-ed47f91fa68a
+2022-03-30 15:56:45.476  INFO 22984 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2022-03-30 15:56:45.589  INFO 31408 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 3005 (http)
+2022-03-30 15:56:45.591  INFO 31408 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-30 15:56:45.591  INFO 31408 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-03-30 15:56:45.651  INFO 31408 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-30 15:56:45.652  INFO 31408 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 921 ms
+2022-03-30 15:56:45.685  INFO 31408 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-03-30 15:56:45.689  WARN 31408 --- [restartedMain] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2022-03-30 15:56:45.724  INFO 31408 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-30 15:56:45.806  INFO 22984 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2022-03-30 15:56:45.822  INFO 22984 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-03-30 15:56:45.789  INFO 31408 --- [cluster-rtt-ClusterId{value='624430652d5dac5150fd8516', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:7, serverValue:55}] to localhost:27017
+2022-03-30 15:56:45.893  INFO 31408 --- [cluster-ClusterId{value='624430652d5dac5150fd8516', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:6, serverValue:56}] to localhost:27017
+2022-03-30 15:56:45.896  INFO 31408 --- [cluster-ClusterId{value='624430652d5dac5150fd8516', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=121113800}
+2022-03-30 15:56:45.904  WARN 31408 --- [restartedMain] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2022-03-30 15:56:45.945  INFO 22984 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2022-03-30 15:56:45.946  INFO 22984 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2022-03-30 15:56:45.947  INFO 22984 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2022-03-30 15:56:45.947  INFO 22984 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2022-03-30 15:56:45.949  INFO 22984 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2022-03-30 15:56:45.949  INFO 22984 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2022-03-30 15:56:45.950  INFO 22984 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2022-03-30 15:56:47.192  INFO 31408 --- [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2022-03-30 15:56:47.590  INFO 22984 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2022-03-30 15:56:47.600  INFO 22984 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2022-03-30 15:56:47.604  INFO 22984 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-03-30 15:56:47.613  INFO 22984 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1648636007612 with initial instances count: 4
+2022-03-30 15:56:47.619  INFO 22984 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application USER-SERVICE with eureka with status UP
+2022-03-30 15:56:47.619  INFO 22984 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1648636007619, current=UP, previous=STARTING]
+2022-03-30 15:56:47.622  INFO 22984 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/MAVCHN0821151.mavericsystems.lan:user-service:3005: registering service...
+2022-03-30 15:56:47.651  INFO 22984 --- [main] c.e.u.UserServiceApplicationTests        : Started UserServiceApplicationTests in 10.911 seconds (JVM running for 13.474)
+2022-03-30 15:56:47.738  INFO 22984 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/MAVCHN0821151.mavericsystems.lan:user-service:3005 - registration status: 204
+2022-03-30 15:56:48.652  WARN 31408 --- [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2022-03-30 15:56:48.666  INFO 31408 --- [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2022-03-30 15:56:48.672  INFO 31408 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2022-03-30 15:56:48.673  INFO 31408 --- [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-03-30 15:56:48.677  INFO 31408 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2022-03-30 15:56:48.677  INFO 31408 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2022-03-30 15:56:48.677  INFO 31408 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2022-03-30 15:56:48.677  INFO 31408 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2022-03-30 15:56:48.678  INFO 31408 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2022-03-30 15:56:48.678  INFO 31408 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2022-03-30 15:56:48.678  INFO 31408 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2022-03-30 15:56:48.679  INFO 22984 --- [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application USER-SERVICE with eureka with status DOWN
+2022-03-30 15:56:48.680  INFO 22984 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1648636008680, current=DOWN, previous=UP]
+2022-03-30 15:56:48.687  INFO 22984 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/MAVCHN0821151.mavericsystems.lan:user-service:3005: registering service...
+2022-03-30 15:56:48.699  INFO 22984 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2022-03-30 15:56:48.752  INFO 31408 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2022-03-30 15:56:48.753  INFO 31408 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2022-03-30 15:56:48.755  INFO 31408 --- [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-03-30 15:56:48.756  INFO 31408 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1648636008756 with initial instances count: 4
+2022-03-30 15:56:48.757  INFO 31408 --- [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application USER-SERVICE with eureka with status UP
+2022-03-30 15:56:48.757  INFO 31408 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1648636008757, current=UP, previous=STARTING]
+2022-03-30 15:56:48.761  INFO 31408 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 3005 (http) with context path ''
+2022-03-30 15:56:48.761  INFO 31408 --- [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 3005
+2022-03-30 15:56:48.831  INFO 22984 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/MAVCHN0821151.mavericsystems.lan:user-service:3005 - registration status: 204
+2022-03-30 15:56:48.836  INFO 22984 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2022-03-30 15:56:48.864  INFO 22984 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/MAVCHN0821151.mavericsystems.lan:user-service:3005 - deregister  status: 200
+2022-03-30 15:56:48.874  INFO 22984 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2022-03-30 15:56:48.987  INFO 31408 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/MAVCHN0821151.mavericsystems.lan:user-service:3005: registering service...
+2022-03-30 15:56:49.012  INFO 31408 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/MAVCHN0821151.mavericsystems.lan:user-service:3005 - registration status: 204
+2022-03-30 15:56:50.028  INFO 31408 --- [restartedMain] c.e.userservice.UserServiceApplication   : Started UserServiceApplication in 6.29 seconds (JVM running for 5780.021)
+2022-03-30 15:56:50.031  INFO 31408 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-03-30 15:56:58.921  INFO 31408 --- [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application USER-SERVICE with eureka with status DOWN
+2022-03-30 15:56:58.921  INFO 31408 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1648636018921, current=DOWN, previous=UP]
+2022-03-30 15:56:58.922  INFO 31408 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/MAVCHN0821151.mavericsystems.lan:user-service:3005: registering service...
+2022-03-30 15:56:58.942  INFO 31408 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/MAVCHN0821151.mavericsystems.lan:user-service:3005 - registration status: 204
+2022-03-30 15:56:59.225  INFO 31408 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2022-03-30 15:57:02.235  INFO 31408 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2022-03-30 15:57:02.253  INFO 31408 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/MAVCHN0821151.mavericsystems.lan:user-service:3005 - deregister  status: 200
+2022-03-30 15:57:02.260  INFO 31408 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2022-03-30 15:57:12.549  INFO 26872 --- [restartedMain] c.e.userservice.UserServiceApplication   : Starting UserServiceApplication using Java 1.8.0_261 on MAVCHN0821151 with PID 26872 (C:\Users\divyabharathic\Documents\Trainingdocuments\SpringAssesment_test\SpringFinaldemo\user-service\target\classes started by divyabharathic in C:\Users\divyabharathic\Documents\Trainingdocuments\SpringAssesment_test\SpringFinaldemo\user-service)
+2022-03-30 15:57:12.551  INFO 26872 --- [restartedMain] c.e.userservice.UserServiceApplication   : No active profile set, falling back to 1 default profile: "default"
+2022-03-30 15:57:12.635  INFO 26872 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-03-30 15:57:12.635  INFO 26872 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-03-30 15:57:13.625  INFO 26872 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-03-30 15:57:13.827  INFO 26872 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 195 ms. Found 1 MongoDB repository interfaces.
+2022-03-30 15:57:14.244  INFO 26872 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=55f012d7-af9e-3023-9863-ed47f91fa68a
+2022-03-30 15:57:15.538  INFO 26872 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 3005 (http)
+2022-03-30 15:57:15.556  INFO 26872 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-30 15:57:15.556  INFO 26872 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-03-30 15:57:15.944  INFO 26872 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-30 15:57:15.944  INFO 26872 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3307 ms
+2022-03-30 15:57:16.259  INFO 26872 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-03-30 15:57:16.364  INFO 26872 --- [cluster-rtt-ClusterId{value='624430841fb324345c239a82', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:57}] to localhost:27017
+2022-03-30 15:57:16.364  INFO 26872 --- [cluster-ClusterId{value='624430841fb324345c239a82', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:58}] to localhost:27017
+2022-03-30 15:57:16.365  INFO 26872 --- [cluster-ClusterId{value='624430841fb324345c239a82', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=33397900}
+2022-03-30 15:57:16.444  WARN 26872 --- [restartedMain] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2022-03-30 15:57:16.629  INFO 26872 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-30 15:57:16.781  WARN 26872 --- [restartedMain] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2022-03-30 15:57:18.623  INFO 26872 --- [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2022-03-30 15:57:19.419  WARN 26872 --- [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2022-03-30 15:57:19.453  INFO 26872 --- [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2022-03-30 15:57:19.580  INFO 26872 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2022-03-30 15:57:19.590  INFO 26872 --- [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-03-30 15:57:19.647  INFO 26872 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2022-03-30 15:57:19.647  INFO 26872 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2022-03-30 15:57:19.647  INFO 26872 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2022-03-30 15:57:19.647  INFO 26872 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2022-03-30 15:57:19.648  INFO 26872 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2022-03-30 15:57:19.648  INFO 26872 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2022-03-30 15:57:19.649  INFO 26872 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2022-03-30 15:57:20.727  INFO 26872 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2022-03-30 15:57:20.730  INFO 26872 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2022-03-30 15:57:20.735  INFO 26872 --- [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-03-30 15:57:20.742  INFO 26872 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1648636040740 with initial instances count: 4
+2022-03-30 15:57:20.744  INFO 26872 --- [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application USER-SERVICE with eureka with status UP
+2022-03-30 15:57:20.745  INFO 26872 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1648636040744, current=UP, previous=STARTING]
+2022-03-30 15:57:20.747  INFO 26872 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/MAVCHN0821151.mavericsystems.lan:user-service:3005: registering service...
+2022-03-30 15:57:20.776  INFO 26872 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 3005 (http) with context path ''
+2022-03-30 15:57:20.777  INFO 26872 --- [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 3005
+2022-03-30 15:57:20.815  INFO 26872 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/MAVCHN0821151.mavericsystems.lan:user-service:3005 - registration status: 204
+2022-03-30 15:57:21.384  INFO 26872 --- [restartedMain] c.e.userservice.UserServiceApplication   : Started UserServiceApplication in 10.123 seconds (JVM running for 10.963)
+2022-03-30 15:57:30.504  INFO 26872 --- [http-nio-3005-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-30 15:57:30.505  INFO 26872 --- [http-nio-3005-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-03-30 15:57:30.507  INFO 26872 --- [http-nio-3005-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-03-30 15:57:30.566  INFO 26872 --- [http-nio-3005-exec-2] c.e.u.controller.UserController          : Starting of user get all request from user application
+2022-03-30 15:57:30.686  INFO 26872 --- [http-nio-3005-exec-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:3, serverValue:59}] to localhost:27017
