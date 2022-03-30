@@ -48,9 +48,9 @@ public class UserController {
     }
 
     @PutMapping(path="/{userId}")
-    public ResponseEntity<User> updateUser(@PathVariable("userId") String userId,  @RequestBody UserDTO userDTO) {
+    public ResponseEntity<User> updateUser(@PathVariable("userId") String userId,  @RequestBody User user) {
         logger.info("Starting of user Put request from user application");
-        return new ResponseEntity<User>(userService.updateUser(userId, userDTO), HttpStatus.OK);
+        return new ResponseEntity<User>(userService.updateUser(userId, user), HttpStatus.OK);
     }
 
     @GetMapping("/getUserByEmail/{email}")

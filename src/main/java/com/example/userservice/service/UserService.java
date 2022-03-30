@@ -19,5 +19,5 @@ public interface UserService {
 
     UserDTO userByEmail(String email);
 
-    User updateUser(String userId, UserDTO userDTO);
+    User updateUser(String userId, User user);
 }
