@@ -13,11 +13,13 @@ public interface UserService {
 
     UserDTO getUser(String userId);
 
-    List<UserDTO> getAllUsers();
+  
 
     String deleteUser(String userId);
 
     UserDTO userByEmail(String email);
 
     User updateUser(String userId, User user);
+
+    List<UserDTO> getAllUsers(Integer page, Integer size);
 }

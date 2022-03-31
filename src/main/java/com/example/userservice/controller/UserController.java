@@ -36,9 +36,10 @@ public class UserController {
     }
 
     @GetMapping("")
-    public ResponseEntity<List<UserDTO>> getAllUsers(){
+    public ResponseEntity<List<UserDTO>> getAllUsers(@RequestParam(value = "page", required = false) Integer page,
+                                                     @RequestParam(value = "size", required = false) Integer size){
         logger.info("Starting of user get all request from user application");
-        return new ResponseEntity<List<UserDTO>>(userService.getAllUsers(), HttpStatus.OK);
+        return new ResponseEntity<List<UserDTO>>(userService.getAllUsers(page, size), HttpStatus.OK);
     }
 
     @DeleteMapping(path="/{userId}")

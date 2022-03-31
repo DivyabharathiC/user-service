@@ -6,10 +6,14 @@ import com.example.userservice.exception.UserNotFoundException;
 import com.example.userservice.model.User;
 import com.example.userservice.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static com.example.userservice.constant.Constant.EmailAlreadyExists;
 import static com.example.userservice.constant.Constant.UserNotFound;
@@ -55,8 +59,11 @@ public class UserServiceImpl implements UserService{
 
 
     @Override
-    public List<UserDTO> getAllUsers() {
-        List<User> users = userRepo.findAll();
+    public List<UserDTO> getAllUsers(Integer page, Integer size) {
+        page = Optional.ofNullable(page).orElse(0);
+        size = Optional.ofNullable(size).orElse(10);
+        Pageable paging = PageRequest.of(page, size);
+        Page<User> users = userRepo.findAll(paging);
         if(users.isEmpty()){
             throw new UserNotFoundException( UserNotFound + users);
         }
