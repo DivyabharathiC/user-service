@@ -31,6 +31,7 @@ public class UserServiceImpl implements UserService{
             throw new EmailAlreadyExistsException( EmailAlreadyExists );
         }
         return userRepo.save(user);
+
     }
 
     @Override
