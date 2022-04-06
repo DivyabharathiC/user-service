@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Slf4j
@@ -24,7 +25,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping(path = "")
-    public ResponseEntity<User> createUser(@RequestBody User user){
+    public ResponseEntity<User> createUser(@RequestBody @Valid User user){
         logger.info("Starting of user post request from user application");
         return new ResponseEntity<User>(userService.createUser(user), HttpStatus.CREATED);
     }

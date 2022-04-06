@@ -11,10 +11,13 @@ import java.util.List;
 @Data
 public class ApiError {
 
-    private LocalDateTime timeStamp;
-    private HttpStatus status;
-    private List<String> error;
+//    private LocalDateTime timeStamp;
+//    private HttpStatus status;
+//    private List<String> error;
+//
+   private String path;
+    private String code;
 
-    private String path;
+    private String message;
 }
 
