@@ -7,9 +7,11 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.persistence.EnumType;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.persistence.Enumerated;
 import java.util.Date;
 @Data
 @AllArgsConstructor
@@ -29,7 +31,7 @@ public class User {
     private String phoneNumber;
     @NotNull(message = "Date of Birth is required")
     private Date dateOfBirth;
-    @NotNull(message = "Gender is required")
+    @Enumerated(EnumType.STRING)
     private Gender gender;
     @NotEmpty(message = "address is required")
     private String address;
