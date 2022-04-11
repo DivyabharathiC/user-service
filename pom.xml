@@ -15,6 +15,13 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
+		<spring-cloud.version>2021.0.0</spring-cloud.version>
+		<jacoco.version>0.8.7</jacoco.version>
+		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+		<sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
+		<sonar.language>java</sonar.language>
+		<sonar.coverage.exclusions>**/com/example/auth/jwt/filter/**,**/com/example/auth/jwt/util/**</sonar.coverage.exclusions>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -28,7 +35,7 @@
 		<dependency>
 			<groupId>org.hibernate.javax.persistence</groupId>
 			<artifactId>hibernate-jpa-2.1-api</artifactId>
-			<version>1.0.0.Final</version>
+			<version>1.0.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -38,7 +45,11 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.jacoco</groupId>
+			<artifactId>jacoco-maven-plugin</artifactId>
+			<version>0.8.7</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -70,6 +81,32 @@
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.7</version>
+				<configuration>
+<!--					<excludes>-->
+<!--						<exclude>com/example/auth/jwt/filter/**</exclude>-->
+<!--						<exclude>com/example/auth/jwt/util/**</exclude>-->
+<!--					</excludes>-->
+				</configuration>
+				<executions>
+					<execution>
+						<id>jacoco-initialize</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>

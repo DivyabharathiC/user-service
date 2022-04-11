@@ -27,6 +27,7 @@ import java.util.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)
@@ -68,6 +69,7 @@ class UserControllerTest {
                         .content(asJsonString(response))
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
                 .andExpect(status().isOk());
     }
 
@@ -80,6 +82,7 @@ class UserControllerTest {
                         .content(asJsonString(response))
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
                 .andExpect(status().isOk());
         assertEquals(response1.getFirstName(),"1" );
     }
@@ -93,6 +96,7 @@ class UserControllerTest {
                             .content(asJsonString(response))
                             .contentType(MediaType.APPLICATION_JSON)
                             .accept(MediaType.APPLICATION_JSON))
+                    .andDo(print())
                     .andExpect(status().isOk());
         }
 
@@ -105,6 +109,7 @@ class UserControllerTest {
                             .content(asJsonString(response))
                             .contentType(MediaType.APPLICATION_JSON)
                             .accept(MediaType.APPLICATION_JSON))
+                    .andDo(print())
                     .andExpect(status().isOk());
         }
 
@@ -115,9 +120,10 @@ class UserControllerTest {
             UserDTO response1 = createOneUserResponse();
             Mockito.when(userService.updateUser(response.getUserId(), response)).thenReturn(response);
             mockMvc.perform(put("/api/v1/users/1")
-                            .content(asJsonString(response))
+                            .content(asJsonString(response1))
                             .contentType(MediaType.APPLICATION_JSON)
                             .accept(MediaType.APPLICATION_JSON))
+                    .andDo(print())
                     .andExpect(status().isOk());
         }
 
@@ -129,18 +135,20 @@ class UserControllerTest {
                             .content(asJsonString(response))
                             .contentType(MediaType.APPLICATION_JSON)
                             .accept(MediaType.APPLICATION_JSON))
+                    .andDo(print())
                     .andExpect(status().isOk());
         }
 
         @Test
         public void testGetUserByEmail() throws Exception {
             User response = createUserToPost();
-            UserDTO response1 = createOneUserResponse();
-            Mockito.when(userService.userByEmail(response.getEmail())).thenReturn(response1);
+
+            Mockito.when(userService.userByEmail(response.getEmail())).thenReturn(response);
             mockMvc.perform(get("/api/v1/users/getUserByEmail/gyarab@maveric-systems.com")
-                            .content(asJsonString(response1))
+                            .content(asJsonString(response))
                             .contentType(MediaType.APPLICATION_JSON)
                             .accept(MediaType.APPLICATION_JSON))
+                    .andDo(print())
                     .andExpect(status().isOk());
         }
 
@@ -173,8 +181,8 @@ class UserControllerTest {
             userDTO.setEmployeeId("6969");
             userDTO.setBloodGroup("A+");
             userDTO.setEmail("gyarab@maveric-systems.com");
-//            userDTO.setPassword("John@123");
-            userDTO.setAddress("Hyderabad");
+          //  userDTO.setPassword("John@123");
+            userDTO.setAddress("Delhi");
             return userDTO;
         }
 

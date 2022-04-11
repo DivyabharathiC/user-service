@@ -26,21 +26,21 @@ public class UserController {
 
     @PostMapping(path = "")
     public ResponseEntity<User> createUser(@RequestBody @Valid User user){
-        logger.info("Starting of user post request from user application");
-        return new ResponseEntity<User>(userService.createUser(user), HttpStatus.CREATED);
+        logger.info("Starting of user post request from userDTO application");
+        return new ResponseEntity<>(userService.createUser(user), HttpStatus.CREATED);
     }
 
     @GetMapping(path = "/{userId}")
     public ResponseEntity<UserDTO> getUser(@PathVariable("userId") String userId){
         logger.info("Starting of user get by id request from user application");
-        return new ResponseEntity<UserDTO>(userService.getUser(userId), HttpStatus.OK);
+        return new ResponseEntity<>(userService.getUser(userId), HttpStatus.OK);
     }
 
     @GetMapping("")
     public ResponseEntity<List<UserDTO>> getAllUsers(@RequestParam(value = "page", required = false) Integer page,
                                                      @RequestParam(value = "size", required = false) Integer size){
         logger.info("Starting of user get all request from user application");
-        return new ResponseEntity<List<UserDTO>>(userService.getAllUsers(page, size), HttpStatus.OK);
+        return new ResponseEntity<>(userService.getAllUsers(page, size), HttpStatus.OK);
     }
 
     @DeleteMapping(path="/{userId}")
@@ -50,15 +50,15 @@ public class UserController {
     }
 
     @PutMapping(path="/{userId}")
-    public ResponseEntity<User> updateUser(@PathVariable("userId") String userId,  @RequestBody User user) {
+    public ResponseEntity<User> updateUser(@PathVariable("userId") String userId, @RequestBody User user) {
         logger.info("Starting of user Put request from user application");
-        return new ResponseEntity<User>(userService.updateUser(userId, user), HttpStatus.OK);
+        return new ResponseEntity<>(userService.updateUser(userId, user), HttpStatus.OK);
     }
 
     @GetMapping("/getUserByEmail/{email}")
-    public ResponseEntity<UserDTO> userByEmail(@PathVariable("email") String email){
+    public ResponseEntity<User> userByEmail(@PathVariable("email") String email){
         logger.info("Starting of user getUserByEmail request from user application");
-        return new ResponseEntity<UserDTO>(userService.userByEmail(email),HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(userService.userByEmail(email),HttpStatus.ACCEPTED);
     }
 
 }

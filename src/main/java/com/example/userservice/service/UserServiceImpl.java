@@ -15,8 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static com.example.userservice.constant.Constant.EmailAlreadyExists;
-import static com.example.userservice.constant.Constant.UserNotFound;
+import static com.example.userservice.constant.Constant.EMAIL_ALREADY_EXISTS;
+import static com.example.userservice.constant.Constant.USER_NOT_FOUND;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -27,8 +27,8 @@ public class UserServiceImpl implements UserService{
     @Override
     public User createUser(User user) {
         User user1 = userRepo.findByEmail(user.getEmail());
-        if(user1!=null){
-            throw new EmailAlreadyExistsException( EmailAlreadyExists );
+        if(user1 !=null){
+            throw new EmailAlreadyExistsException( EMAIL_ALREADY_EXISTS );
         }
         return userRepo.save(user);
 
@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public UserDTO getUser(String userId) {
         try {
-        User user= userRepo.findById(userId).get();
+        User user = userRepo.findById(userId).get();
             UserDTO userDTO = new UserDTO();
             userDTO.setUserId(user.getUserId());
             userDTO.setFirstName(user.getFirstName());
@@ -51,10 +51,10 @@ public class UserServiceImpl implements UserService{
             userDTO.setEmployeeId(user.getEmployeeId());
             userDTO.setBloodGroup(user.getBloodGroup());
             userDTO.setEmail(user.getEmail());
-            return  userDTO;
+            return userDTO;
         }
         catch(Exception e){
-            throw new UserNotFoundException( UserNotFound + userId);
+            throw new UserNotFoundException( USER_NOT_FOUND + userId);
         }
     }
 
@@ -66,16 +66,16 @@ public class UserServiceImpl implements UserService{
         Pageable paging = PageRequest.of(page, size);
         Page<User> users = userRepo.findAll(paging);
         if(users.isEmpty()){
-            throw new UserNotFoundException( UserNotFound + users);
+            throw new UserNotFoundException( USER_NOT_FOUND + users);
         }
-        List<UserDTO> userDTOS = new ArrayList<>();
+        List<UserDTO> userRespons = new ArrayList<>();
         for (User user : users) {
             UserDTO userDTO = new UserDTO(user.getUserId(), user.getFirstName(), user.getMiddleName(),
                     user.getLastName(), user.getPhoneNumber(), user.getDateOfBirth(), user.getGender(),
                     user.getAddress(), user.getEmployeeId(), user.getBloodGroup(), user.getEmail());
-            userDTOS.add(userDTO);
+            userRespons.add(userDTO);
         }
-        return userDTOS;
+        return userRespons;
     }
 
     @Override
@@ -83,14 +83,14 @@ public class UserServiceImpl implements UserService{
         if(userRepo.findById(userId).isPresent()){
 
             User user1 = userRepo.findByEmail(user.getEmail());
-            if(user1!=null && user1.getUserId()!=userId){
-                throw new EmailAlreadyExistsException(EmailAlreadyExists);
+            if(user1 !=null && user1.getUserId()!=userId){
+                throw new EmailAlreadyExistsException(EMAIL_ALREADY_EXISTS);
             }
             user.setUserId(userId);
             return this.userRepo.save(user);
         }
         else{
-            throw new UserNotFoundException(UserNotFound);
+            throw new UserNotFoundException(USER_NOT_FOUND);
         }
 
     }
@@ -102,21 +102,18 @@ public class UserServiceImpl implements UserService{
         userRepo.delete(user);
         return "User deleted for id : " + userId;
         } catch (Exception e) {
-            throw new UserNotFoundException(UserNotFound);
+            throw new UserNotFoundException(USER_NOT_FOUND);
         }
     }
 
     @Override
-    public UserDTO userByEmail(String email) {
-        try {
-            User user = userRepo.findByEmail(email);
-            UserDTO userDTO = new UserDTO(user.getUserId(),
-                    user.getFirstName(), user.getMiddleName(), user.getLastName(),
-                    user.getPhoneNumber(), user.getDateOfBirth(), user.getGender(),
-                    user.getEmployeeId(), user.getBloodGroup(), user.getAddress(), user.getEmail());
-            return userDTO;
-        } catch (Exception e) {
-            throw new UserNotFoundException(UserNotFound + email);
+    public User userByEmail(String email) {
+        if (userRepo.findByEmail(email)!=null){
+
+            return userRepo.findByEmail(email);
+        }else{
+
+            throw new UserNotFoundException(USER_NOT_FOUND + email);
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.example.userservice.service;
 
+import com.example.userservice.dto.UserDTO;
 import com.example.userservice.enums.Gender;
 import com.example.userservice.model.User;
 import com.example.userservice.repo.UserRepo;
@@ -38,8 +39,27 @@ class UserServiceImplTest {
     @Test
     public void testAddUser(){
         User user = createUserToPost();
+
         Mockito.when(userRepo.save(user)).thenReturn(user);
         assertEquals(user,userRepo.save(user));
+    }
+
+    private UserDTO createUserToResponse() {
+        UserDTO userDTO = new UserDTO();
+
+        userDTO.setUserId("1");
+        userDTO.setFirstName("John");
+        userDTO.setMiddleName("Babu");
+        userDTO.setLastName("Gyara");
+        userDTO.setPhoneNumber("+919700933932");
+        userDTO.setDateOfBirth(new Date(2021,8,01));
+        userDTO.setGender(Gender.MALE);
+        userDTO.setEmployeeId("6969");
+        userDTO.setBloodGroup("A+");
+        userDTO.setEmail("gyarab@maveric-systems.com");
+        userDTO.setAddress("Hyderabad");
+
+        return userDTO;
     }
 
     @Test
@@ -53,7 +73,7 @@ class UserServiceImplTest {
 
     @Test
     public void deleteUser() {
-        User  user = createUserToPost();
+        User user = createUserToPost();
         Mockito.when(userRepo.findByUserId(user.getUserId())).thenReturn(user);
         userRepo.delete(user);
         verify(userRepo,times(1)).delete(user);
@@ -62,7 +82,7 @@ class UserServiceImplTest {
 
     @Test
     public void testGetUsers(){
-        List<User> users=getUserList();
+        List<User> users =getUserList();
         Mockito.when(userRepo.findAll()).thenReturn(users);
         assertEquals(2,userRepo.findAll().size());
     }
