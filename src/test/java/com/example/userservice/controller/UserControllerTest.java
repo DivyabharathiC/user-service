@@ -73,19 +73,19 @@ class UserControllerTest {
                 .andExpect(status().isOk());
     }
 
-    @Test
-    public void testCreateUserFail() throws Exception {
-        User response = createUserToPost();
-        UserDTO response1 = createOneUserResponse();
-        Mockito.when(userService.createUser(response)).thenReturn(response);
-        mockMvc.perform(post("/api/v1/users")
-                        .content(asJsonString(response))
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .accept(MediaType.APPLICATION_JSON))
-                .andDo(print())
-                .andExpect(status().isOk());
-        assertEquals(response1.getFirstName(),"1" );
-    }
+//    @Test
+//    public void testCreateUserFail() throws Exception {
+//        User response = createUserToPost();
+//        UserDTO response1 = createOneUserResponse();
+//        Mockito.when(userService.createUser(response)).thenReturn(response);
+//        mockMvc.perform(post("/api/v1/users")
+//                        .content(asJsonString(response))
+//                        .contentType(MediaType.APPLICATION_JSON)
+//                        .accept(MediaType.APPLICATION_JSON))
+//                .andDo(print())
+//                .andExpect(status().isOk());
+//        assertEquals(response1.getFirstName(),"1" );
+//    }
 
         @Test
         public void getUserById() throws Exception {
@@ -158,7 +158,7 @@ class UserControllerTest {
             user.setFirstName("John");
             user.setMiddleName("Babu");
             user.setLastName("Gyara");
-            user.setPhoneNumber("+919700933932");
+            user.setPhoneNumber("9700933932");
             user.setDateOfBirth(new Date(1992, 9, 9));
             user.setGender(Gender.MALE);
             user.setEmployeeId("6969");
@@ -175,7 +175,7 @@ class UserControllerTest {
             userDTO.setFirstName("John");
             userDTO.setMiddleName("Babu");
             userDTO.setLastName("Gyara");
-            userDTO.setPhoneNumber("+919700933932");
+            userDTO.setPhoneNumber("9700933932");
             userDTO.setDateOfBirth(new Date(1992, 9, 9));
             userDTO.setGender(Gender.MALE);
             userDTO.setEmployeeId("6969");
