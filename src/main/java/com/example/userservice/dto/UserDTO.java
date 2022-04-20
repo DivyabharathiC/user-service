@@ -4,7 +4,7 @@ import com.example.userservice.enums.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
+
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -16,7 +16,7 @@ import java.util.Date;
 @Data
 public class UserDTO {
 
-    @Id
+
     private String userId;
     @NotEmpty(message = "First name is required")
     private String firstName;

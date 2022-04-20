@@ -25,7 +25,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping(path = "")
-    public ResponseEntity<User> createUser(@RequestBody @Valid User user){
+    public ResponseEntity<UserDTO> createUser(@RequestBody @Valid User user){
         logger.info("Starting of user post request from userDTO application");
         return new ResponseEntity<>(userService.createUser(user), HttpStatus.CREATED);
     }
@@ -50,7 +50,7 @@ public class UserController {
     }
 
     @PutMapping(path="/{userId}")
-    public ResponseEntity<User> updateUser(@PathVariable("userId") String userId, @RequestBody User user) {
+    public ResponseEntity<UserDTO> updateUser(@PathVariable("userId") String userId, @RequestBody User user) {
         logger.info("Starting of user Put request from user application");
         return new ResponseEntity<>(userService.updateUser(userId, user), HttpStatus.OK);
     }

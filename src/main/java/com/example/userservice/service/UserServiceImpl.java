@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -25,41 +26,59 @@ public class UserServiceImpl implements UserService{
     UserRepo userRepo;
 
     @Override
-    public User createUser(User user) {
+    public UserDTO createUser(User user) {
         User user1 = userRepo.findByEmail(user.getEmail());
         if(user1 !=null){
             throw new EmailAlreadyExistsException( EMAIL_ALREADY_EXISTS );
         }
-        return userRepo.save(user);
+        user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
+        userRepo.save(user);
+        UserDTO userDTO= new UserDTO();
+        userDTO.setUserId(user.getUserId());
+        userDTO.setFirstName(user.getFirstName());
+        userDTO.setMiddleName(user.getMiddleName());
+        userDTO.setLastName(user.getLastName());
+        userDTO.setPhoneNumber(user.getPhoneNumber());
+        userDTO.setEmail(user.getEmail());
+        userDTO.setAddress(user.getAddress());
+        userDTO.setDateOfBirth(user.getDateOfBirth());
+        userDTO.setEmployeeId(user.getEmployeeId());
+        userDTO.setBloodGroup(user.getBloodGroup());
+        userDTO.setGender(user.getGender());
+        return  userDTO;
 
     }
 
     @Override
     public UserDTO getUser(String userId) {
         try {
-        User user = userRepo.findById(userId).get();
-            UserDTO userDTO = new UserDTO();
-            userDTO.setUserId(user.getUserId());
-            userDTO.setFirstName(user.getFirstName());
-            userDTO.setMiddleName(user.getMiddleName());
-            userDTO.setLastName(user.getLastName());
-            userDTO.setPhoneNumber(user.getPhoneNumber());
-            userDTO.setDateOfBirth(user.getDateOfBirth());
-            userDTO.setEmail(user.getEmail());
-            userDTO.setGender(user.getGender());
-            userDTO.setAddress(user.getAddress());
-            userDTO.setEmployeeId(user.getEmployeeId());
-            userDTO.setBloodGroup(user.getBloodGroup());
-            userDTO.setEmail(user.getEmail());
-            return userDTO;
-        }
-        catch(Exception e){
-            throw new UserNotFoundException( USER_NOT_FOUND + userId);
+            Optional<User> optional = (userRepo.findById(userId));
+            if (optional.isPresent()) {
+                User user=optional.get();
+                UserDTO userDTO = new UserDTO();
+                userDTO.setUserId(user.getUserId());
+                userDTO.setFirstName(user.getFirstName());
+                userDTO.setMiddleName(user.getMiddleName());
+                userDTO.setLastName(user.getLastName());
+                userDTO.setPhoneNumber(user.getPhoneNumber());
+                userDTO.setDateOfBirth(user.getDateOfBirth());
+                userDTO.setEmail(user.getEmail());
+                userDTO.setGender(user.getGender());
+                userDTO.setAddress(user.getAddress());
+                userDTO.setEmployeeId(user.getEmployeeId());
+                userDTO.setBloodGroup(user.getBloodGroup());
+                userDTO.setEmail(user.getEmail());
+                return userDTO;
+            } else {
+                throw new UserNotFoundException(USER_NOT_FOUND + userId);
+            }
+        } catch (Exception e) {
+            throw new UserNotFoundException(USER_NOT_FOUND + userId);
         }
     }
 
 
-    @Override
+        @Override
     public List<UserDTO> getAllUsers(Integer page, Integer size) {
         page = Optional.ofNullable(page).orElse(0);
         size = Optional.ofNullable(size).orElse(10);
@@ -79,7 +98,8 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User updateUser(String userId, User user) {
+    public UserDTO updateUser(String userId, User user) {
+        user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
         if(userRepo.findById(userId).isPresent()){
 
             User user1 = userRepo.findByEmail(user.getEmail());
@@ -87,7 +107,20 @@ public class UserServiceImpl implements UserService{
                 throw new EmailAlreadyExistsException(EMAIL_ALREADY_EXISTS);
             }
             user.setUserId(userId);
-            return this.userRepo.save(user);
+            userRepo.save(user);
+            UserDTO userDTO= new UserDTO();
+            userDTO.setUserId(user.getUserId());
+            userDTO.setFirstName(user.getFirstName());
+            userDTO.setMiddleName(user.getMiddleName());
+            userDTO.setLastName(user.getLastName());
+            userDTO.setPhoneNumber(user.getPhoneNumber());
+            userDTO.setEmail(user.getEmail());
+            userDTO.setAddress(user.getAddress());
+            userDTO.setDateOfBirth(user.getDateOfBirth());
+            userDTO.setEmployeeId(user.getEmployeeId());
+            userDTO.setBloodGroup(user.getBloodGroup());
+            userDTO.setGender(user.getGender());
+            return  userDTO;
         }
         else{
             throw new UserNotFoundException(USER_NOT_FOUND);

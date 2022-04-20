@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public interface UserService {
 
-    User createUser(User user);
+    UserDTO createUser(User user);
 
     UserDTO getUser(String userId);
 
@@ -19,7 +19,7 @@ public interface UserService {
 
     User userByEmail(String email);
 
-    User updateUser(String userId, User user);
+    UserDTO updateUser(String userId, User user);
 
     List<UserDTO> getAllUsers(Integer page, Integer size);
 }
